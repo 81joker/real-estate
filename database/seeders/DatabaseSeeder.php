@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\EventType;
 use Database\Seeders\EventTypesTableSeeder;
 use Database\Seeders\LocationsTypesTableSeeder;
+use Database\Seeders\VenuesTableSeeder;
 
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
 
             EventTypesTableSeeder::class,
             LocationsTypesTableSeeder::class,
+            VenuesTableSeeder::class,
 
         ]);
     }

@@ -11,26 +11,30 @@ class frontHomeController extends Controller
 {
     public function index()
     {
-        $featuredVenues = [
-            [
-                'hero_img' => 'images/hero_bg_1.jpg',
-                'name' => '853 S Lucerne Blvd',
-                'address' => ' Hermann-Bahr-Straße 4',
-                'price' => '2,250,500',
-                'link' => '#'
-            ],
-            [
-                'hero_img' => 'images/hero_bg_3.jpg',
-                'name' => '607 uberÖstrrich, CA 90005',
-                'address' => 'Untersee 44',
-                'price' => '2,250,500',
-                'link' => '#'
-            ],
-        ];
+        // $featuredVenuesImgs = [
+        //     [
+        //         'hero_img' => 'images/hero_bg_1.jpg',
+
+        //     ],
+        //     [
+        //         'hero_img' => 'images/hero_bg_3.jpg',
+
+        //     ],
+        // ];
+
+        $featuredVenues = Venue::where('is_featured', 'id')->get();
+
         $eventTypes = EventType::all();
         $locations = Location::all();
-        $newsetVenues  = Venue::latest()->take(6)->get();
+        $newsetVenues  = Venue::with('event_types')->latest()->take(3)->get();
+        // $newestVenues = Venue::with('event_types')->latest()->take(3)->get();
+
 
         return view('q2e.index', compact('featuredVenues', 'eventTypes', 'locations', 'newsetVenues'));
+    }
+
+
+    public function show(Request $request)
+    {
     }
 }

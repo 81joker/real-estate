@@ -26,10 +26,10 @@ class LocationsTypesTableSeeder extends Seeder
             'Eisenstadt'
         ];
         foreach ($locations as $location) {
-
+            $slug = Str::slug($location);
             Location::create([
                 'name' => $location,
-                'slug' => Str::slug($location)
+                'slug' =>  $slug
 
             ]);
         }

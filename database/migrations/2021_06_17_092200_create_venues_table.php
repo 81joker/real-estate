@@ -37,9 +37,9 @@ class CreateVenuesTable extends Migration
             $table->decimal('price_per_hour', 15, 2)->nullable();
 
             $table->boolean('is_featured')->default(0)->nullable();
-            $table->unsignedInteger('location_id');
+            $table->unsignedBigInteger('location_id');
 
-            // $table->foreign('location_id', 'location_fk_480175')->references('id')->on('locations');
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
         });
     }
