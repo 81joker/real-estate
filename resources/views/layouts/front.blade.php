@@ -45,14 +45,14 @@
         <div class="row align-items-center">
           <div class="col-6 col-md-6">
             <p class="mb-0">
-              <a href="#" class="mr-3"><span class="text-black fl-bigmug-line-phone351"></span> <span class="d-none d-md-inline-block ml-2">+2 102 3923 3922</span></a>
-              <a href="#"><span class="text-black fl-bigmug-line-email64"></span> <span class="d-none d-md-inline-block ml-2">info@domain.com</span></a>
+              <a href="#" class="mr-3"><span class="text-black fl-bigmug-line-phone351"></span> <span class="d-none d-md-inline-block ml-2">+43 660 618 0228</span></a>
+              <a href="#"><span class="text-black fl-bigmug-line-email64"></span> <span class="d-none d-md-inline-block ml-2">nehad.al.timimi@gmail.com</span></a>
             </p>
           </div>
           <div class="col-6 col-md-6 text-right">
             <a href="#" class="mr-3"><span class="text-black icon-facebook"></span></a>
-            <a href="#" class="mr-3"><span class="text-black icon-twitter"></span></a>
-            <a href="#" class="mr-0"><span class="text-black icon-linkedin"></span></a>
+            <a href="https://twitter.com/al_nehad" class="mr-3"><span class="text-black icon-twitter"></span></a>
+            <a href="https://www.linkedin.com/in/nehad-altimimi-8859b919a/" class="mr-0"><span class="text-black icon-linkedin"></span></a>
           </div>
         </div>
       </div>
@@ -70,28 +70,27 @@
                 <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                  <li class="active">
+                  {{-- <li class="active">
                     <a href="index.html">Home</a>
-                  </li>
+                  </li> --}}
                   <li class="has-children">
-                    <a href="properties.html">Properties</a>
+                    <a href="properties.html">Location</a>
                     <ul class="dropdown">
-                      <li><a href="#">Buy</a></li>
-                      <li><a href="#">Rent</a></li>
-                      <li><a href="#">Lease</a></li>
-                      <li class="has-children">
-                        <a href="#">Menu</a>
-                        <ul class="dropdown">
-                          <li><a href="#">Menu One</a></li>
-                          <li><a href="#">Menu Two</a></li>
-                          <li><a href="#">Menu Three</a></li>
-                        </ul>
-                      </li>
+                        @foreach (\App\Models\Location::all() as $location)
+                        <li><a href="#">{{$location->name}}</a></li>
+                        @endforeach
                     </ul>
                   </li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="contact.html">Contact</a></li>
+                  <li class="has-children">
+                    <a href="properties.html">EventType</a>
+                    <ul class="dropdown">
+                        @foreach (\App\Models\EventType::all() as $eventType)
+                        <li><a href="#">{{$eventType->name}}</a></li>
+                        @endforeach
+                    </ul>
+                  </li>
+                  <li><a href="{{ route('about') }}">About</a></li>
+                  <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
               </nav>
             </div>
@@ -122,21 +121,19 @@
           <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="row mb-5">
               <div class="col-md-12">
-                <h3 class="footer-heading mb-4">Navigations</h3>
+                <h3 class="footer-heading mb-4">Locations</h3>
               </div>
               <div class="col-md-6 col-lg-6">
                 <ul class="list-unstyled">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Buy</a></li>
-                  <li><a href="#">Rent</a></li>
-                  <li><a href="#">Properties</a></li>
+                    @foreach (\App\Models\Location::all()->take(5) as $location)
+                    <li><a href="#">{{$location->name}}</a></li>
+                    @endforeach
                 </ul>
               </div>
               <div class="col-md-6 col-lg-6">
                 <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="{{ route('about')}}">About Us</a></li>
+                  <li><a href="{{ route('contact')}}">Contact Us</a></li>
                   <li><a href="#">Terms</a></li>
                 </ul>
               </div>
@@ -189,6 +186,6 @@
   <script src="{{ asset('js/aos.js') }}"></script>
 
   <script src="{{ asset('js/main.js') }}"></script>
-
+   @yield('javascript')
   </body>
 </html>

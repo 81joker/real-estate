@@ -184,7 +184,7 @@
           <div class="slide-item">
             <div class="team-member text-center">
                 <a href="{{ route('location', $location->slug) }}">
-                   <img src="https://source.unsplash.com/200x200/?austra,bundesland" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto">
+                    <img src="/images/locations/{{ $location->photo }}" alt="Image" class="img-fluid mb-4 w-50 rounded-circle mx-auto" >
                 </a>
               <div class="text p-3">
                 <h2 class="mb-2 font-weight-light text-black h4">{{$location->name}}</h2>

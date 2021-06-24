@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Location;
 use App\Models\EventType;
+use App\Models\Photo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,5 +38,10 @@ class Venue extends Model
     public function event_types()
     {
         return $this->belongsToMany(EventType::class);
+    }
+
+    public function photo()
+    {
+        return $this->morphOne(Photo::class, 'photoable');
     }
 }

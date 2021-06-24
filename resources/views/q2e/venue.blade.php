@@ -86,7 +86,7 @@
                             <div class="col-12">
                                 <div style="width: 100%; height: 400px" id="address-map"></div>
 
-                                {{-- <script>
+                                 <script>
                                   var map;
                                   var default_center_latitude = {{ $venue->latitude }};
                                   var default_center_longitude = {{ $venue->longitude }};
@@ -116,7 +116,20 @@
                                     });
 
                                   }
-                                </script> --}}
+
+
+                                  // let map;
+                                  //
+                                  //   function initMap() {
+                                  //     map = new google.maps.Map(document.getElementById("address-map"), {
+                                  //       center: { lat: 48.210033, lng: 	16.363449 },
+                                  //       zoom: 8,
+                                  //     });
+                                  //   }
+
+
+
+                                </script>
 
                             </div>
                         </div>
@@ -202,7 +215,12 @@
         </div>
 @endsection
 
-{{-- @section('javascript')
-<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initMap"
-        async defer></script>
-@endsection --}}
+@section('javascript')
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRlr9HMbr6Yvhj0JGmVhtLIdFziyfnvao&libraries=places&languge=de&callback=initMap"
+        async defer></script> -->
+        <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWMPFHVhDvF3dv6A9WE0PGtX1dPNQK2u8&callback=initMap">
+  </script>
+
+
+@endsection
