@@ -22,7 +22,7 @@ class frontHomeController extends Controller
         //     ],
         // ];
 
-        $featuredVenues = Venue::where('is_featured', '1')->get();
+        $featuredVenues = Venue::where('is_featured', 1)->get();
 
         $eventTypes = EventType::all();
         $locations = Location::all();
